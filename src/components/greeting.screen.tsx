@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, AppRegistry } from 'react-native';
 import { Styles } from '../styling/styles.styling';
 
 // the interface sets up the properties that are supposed to be on the component
 interface Props {
   name: string;
+  navigation: any;
 }
 
 interface State {}
@@ -38,13 +39,15 @@ const welcome = StyleSheet.create({
   }
 });
 
-export class Greeting extends Component<Props, State> {
-  constructor(props) {
+export class GreetingScreen extends Component<Props, State> {
+  constructor (props) {
     super(props);
   }
 
   buttonPress () {
-    console.log('hello');
+    console.log('login button pushed. go to landing.');
+    const { navigate } = this.props.navigation;
+    navigate ('Landing');
   }
 
   render () {
@@ -66,8 +69,7 @@ export class Greeting extends Component<Props, State> {
           <Button
             color={ Styles.colors.secondary.main }
             onPress={ this.buttonPress }
-            title='Login'>
-          </Button>
+            title='Go to Landing' />
         </View>
       </View>
     );
