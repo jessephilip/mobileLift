@@ -39,12 +39,12 @@
     "no-bitwise": true,
     "no-conditional-assignment": true,
     "no-console": [
-    true,
-    "debug",
-    "info",
-    "time",
-    "timeEnd",
-    "trace"
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
     ],
     "no-construct": true,
     "no-debugger": true,
@@ -61,67 +61,71 @@
     "radix": true,
     "switch-default": true,
     "triple-equals": [
-    true,
-    "allow-undefined-check"
+      true,
+      "allow-undefined-check"
     ],
     "eofline": false,
     "indent": [
-    true,
-    "spaces"
+      true,
+      "spaces"
     ],
     "max-line-length": [
-    true,
-    150
+      true,
+      150
     ],
     "no-require-imports": false,
     "no-trailing-whitespace": true,
     "object-literal-sort-keys": false,
     "trailing-comma": [
-    true, {
-      "multiline": "never",
-      "singleline": "never"
-    }
+      true, {
+        "multiline": "never",
+        "singleline": "never"
+      }
     ],
     "align": [true],
     "class-name": true,
     "comment-format": [
-    true,
-    "check-space"
+      true,
+      "check-space"
     ],
     "interface-name": [false],
     "jsdoc-format": true,
     "no-consecutive-blank-lines": [true],
     "no-parameter-properties": false,
     "one-line": [
-    true,
-    "check-open-brace",
-    "check-catch",
-    "check-else",
-    "check-finally",
-    "check-whitespace"
+      true,
+      "check-open-brace",
+      "check-catch",
+      "check-else",
+      "check-finally",
+      "check-whitespace"
     ],
     "quotemark": [
-    true,
-    "single",
-    "avoid-escape"
+      true,
+      "single",
+      "avoid-escape"
     ],
     "semicolon": [
-    true,
-    "always"
+      true,
+      "always"
     ],
     "variable-name": [
-    true,
-    "check-format",
-    "allow-leading-underscore",
-    "ban-keywords"
+      true,
+      "check-format",
+      "allow-leading-underscore",
+      "ban-keywords"
     ],
     "whitespace": [
-    true,
-    "check-branch",
-    "check-decl",
-    "check-operator",
-    "check-separator",
-    "check-type"
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ],
+    "space-before-function-paren": [
+      true,
+      "always"
     ]
   }
 }
