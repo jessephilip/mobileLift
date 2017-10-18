@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { Styles } from '../styling/styles.styling';
 
-// the interface sets up the properties that are supposed to be on the component
+// this interface sets up the properties that are supposed to be on the component
 interface Props {
   name: string;
   navigation: any;
@@ -51,10 +51,10 @@ export class LandingScreen extends Component<Props, State> {
 
   public buttonPress = () => {
     const { navigate } = this.props.navigation;
-    navigate ('Greeting');
+    navigate ('greeting');
   }
 
-  render () {
+  public render () {
     return (
       <View style={ landing.container }>
         <Text
