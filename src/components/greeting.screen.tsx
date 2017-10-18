@@ -40,12 +40,16 @@ const welcome = StyleSheet.create({
 });
 
 export class GreetingScreen extends Component<Props, State> {
+
   constructor (props) {
     super(props);
   }
 
-  buttonPress () {
-    console.log('login button pushed. go to landing.');
+  static navigationOptions = {
+    title: 'Welcome'
+  };
+
+  public buttonPress = () => {
     const { navigate } = this.props.navigation;
     navigate ('Landing');
   }

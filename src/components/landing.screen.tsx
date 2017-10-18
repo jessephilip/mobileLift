@@ -45,8 +45,11 @@ export class LandingScreen extends Component<Props, State> {
     super(props);
   }
 
-  buttonPress () {
-    console.log('login button pushed. go to Greeting');
+  static navigationOptions = {
+    title: 'Landing Page'
+  };
+
+  public buttonPress = () => {
     const { navigate } = this.props.navigation;
     navigate ('Greeting');
   }
