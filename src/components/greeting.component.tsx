@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { Styles } from '../variables.styling';
+import { Styles } from '../styling/styles.styling';
 
 // the interface sets up the properties that are supposed to be on the component
 interface Props {
