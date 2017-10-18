@@ -10,8 +10,15 @@ import { LandingScreen } from './src/components/landing.screen';
 
 // tslint:disable-next-line:variable-name
 const MobileLift = StackNavigator({
-  'greeting': { screen: GreetingScreen },
-  'landing': { screen: LandingScreen }
+  'greeting': {
+    screen: GreetingScreen
+  },
+  'landing': {
+    screen: LandingScreen,
+    navigationOptions: {
+      title: 'Uplift'
+    }
+  }
 });
 
 const styles = StyleSheet.create({

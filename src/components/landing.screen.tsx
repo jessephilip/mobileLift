@@ -1,43 +1,35 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+
+// for tab navigation
+import { TabNavigator } from 'react-navigation';
+import { TodayScreen } from '../screens/today.screen';
+import { ScheduleScreen } from '../screens/schedule.screen';
+import { LogScreen } from '../screens/log.screen';
+
+// styling
 import { Styles } from '../styling/styles.styling';
 
-// this interface sets up the properties that are supposed to be on the component
-interface Props {
-  name: string;
-  navigation: any;
-}
-
+interface Props {}
 interface State {}
 
-// styles
-const landing = StyleSheet.create({
-  container: {
-    alignSelf: 'stretch',
-    flex: 1,
-    backgroundColor: Styles.colors.primary.dark,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingTop: 50,
-    paddingRight: 0,
-    paddingBottom: 50,
-    paddingLeft: 0
-  },
-
-  heading: {
-    color: 'white',
-    fontSize: Styles.textSizes.extraLarge
-  },
-  text: {
-    color: Styles.colors.primary.light,
-    fontSize: Styles.textSizes.normal,
-    textAlign: 'center',
-    padding: 10
-  },
-  button: {
-    alignSelf: 'flex-end'
+// tslint:disable-next-line:variable-name
+const TabNavigation = TabNavigator({
+  today: { screen: TodayScreen },
+  schedule: { screen: ScheduleScreen },
+  log: { screen: LogScreen }
+}, {
+    animationEnabled: true,
+    lazy: true,
+    swipeEnabled: true,
+    tabBarPosition: 'top',
+    tabBarOptions: {
+      activeTintColor: Styles.colors.secondary.main,
+      inactiveTintColor: '#fff',
+      inactiveBackgroundColor: Styles.colors.primary.main,
+      activeBackgroundColor: Styles.colors.primary.light
+    }
   }
-});
+);
 
 export class LandingScreen extends Component<Props, State> {
 
@@ -45,37 +37,9 @@ export class LandingScreen extends Component<Props, State> {
     super(props);
   }
 
-  static navigationOptions = {
-    title: 'Landing Page'
-  };
-
-  public buttonPress = () => {
-    const { navigate } = this.props.navigation;
-    navigate ('greeting');
-  }
-
   public render () {
     return (
-      <View style={ landing.container }>
-        <Text
-          style={ landing.heading }>
-          Landing Page
-        </Text>
-        <Text
-          style={ landing.text }>
-          I love my wife
-        </Text>
-        <View>
-          <Text
-            style={ landing.text }>
-            Description Description
-          </Text>
-          <Button
-            color={ Styles.colors.secondary.main }
-            onPress={ this.buttonPress }
-            title='Go to Greeting' />
-        </View>
-      </View>
+      <TabNavigation />
     );
   }
 }
