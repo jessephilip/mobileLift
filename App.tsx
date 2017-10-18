@@ -1,26 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-interface Props {
-  name: string;
-}
-
-class Greeting extends Component<Props, {}> {
-  render () {
-    return <Text>Hello {this.props.name}</Text>;
-  }
-}
-
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Greeting name='Jesse'></Greeting>
-        <Greeting name='Brian'></Greeting>
-      </View>
-    );
-  }
-}
+import { Greeting } from './src/components/greeting.component';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,3 +10,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
+
+export default class App extends Component {
+  render() {
+    return (
+      <View style={ styles.container }>
+        <Greeting name='Jesse'></Greeting>
+      </View>
+    );
+  }
+}
