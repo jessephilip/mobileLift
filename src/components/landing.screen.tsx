@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { Styles } from '../styling/styles.styling';
 
-// the interface sets up the properties that are supposed to be on the component
+// this interface sets up the properties that are supposed to be on the component
 interface Props {
   name: string;
+  navigation: any;
 }
 
 interface State {}
 
 // styles
-const welcome = StyleSheet.create({
+const landing = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
     flex: 1,
@@ -38,36 +39,41 @@ const welcome = StyleSheet.create({
   }
 });
 
-export class Greeting extends Component<Props, State> {
-  constructor(props) {
+export class LandingScreen extends Component<Props, State> {
+
+  constructor (props) {
     super(props);
   }
 
-  buttonPress () {
-    console.log('hello');
+  static navigationOptions = {
+    title: 'Landing Page'
+  };
+
+  public buttonPress = () => {
+    const { navigate } = this.props.navigation;
+    navigate ('greeting');
   }
 
-  render () {
+  public render () {
     return (
-      <View style={ welcome.container }>
+      <View style={ landing.container }>
         <Text
-          style={ welcome.heading }>
-          Welcome
+          style={ landing.heading }>
+          Landing Page
         </Text>
         <Text
-          style={ welcome.text }>
-          Lorem Ipsum Bad Jokes
+          style={ landing.text }>
+          I love my wife
         </Text>
         <View>
           <Text
-            style={ welcome.text }>
-            Here is some description text. I should type a good bit here. Maybe that's enough.
+            style={ landing.text }>
+            Description Description
           </Text>
           <Button
             color={ Styles.colors.secondary.main }
             onPress={ this.buttonPress }
-            title='Login'>
-          </Button>
+            title='Go to Greeting' />
         </View>
       </View>
     );

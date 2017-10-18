@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Greeting } from './src/components/greeting.component';
+
+// navigation
+import { StackNavigator } from 'react-navigation';
+
+// screens
+import { GreetingScreen } from './src/components/greeting.screen';
+import { LandingScreen } from './src/components/landing.screen';
+
+// tslint:disable-next-line:variable-name
+const MobileLift = StackNavigator({
+  'greeting': { screen: GreetingScreen },
+  'landing': { screen: LandingScreen }
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -12,11 +24,7 @@ const styles = StyleSheet.create({
 });
 
 export default class App extends Component {
-  render() {
-    return (
-      <View style={ styles.container }>
-        <Greeting name='Jesse'></Greeting>
-      </View>
-    );
+  render () {
+    return <MobileLift />;
   }
 }
