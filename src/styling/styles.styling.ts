@@ -18,5 +18,18 @@ export const Styles = {
     normal: 24,
     large: 48,
     extraLarge: 60
+  },
+  shadows: {
+    iosBoxShadow: {
+      shadowColor: '#333',
+      shadowOffset: { width: 1, height: 1 },
+      shadowOpacity: 0.25,
+      shadowRadius: 3
+    },
+    textShadow: {
+      textShadowColor: '#333',
+      textShadowOffset: { width: 1, height: 1 },
+      textShadowRadius: 1
+    }
   }
 };
