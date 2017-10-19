@@ -6,7 +6,6 @@ interface Props {
   exercise: string;
   name: string;
   points: number;
-
 }
 
 interface State {}
@@ -17,7 +16,7 @@ export class ChallengeCard extends Component<Props, State> {
   }
 
   public cardTouch = () => {
-    console.log(this.props.name);
+    console.log('card press: ', this.props.name);
   }
 
   public render () {
