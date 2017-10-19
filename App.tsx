@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-// navigation
 import { StackNavigator } from 'react-navigation';
 
 // screens
@@ -18,15 +15,6 @@ const MobileLift = StackNavigator({
     navigationOptions: {
       title: 'Uplift'
     }
-  }
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
   }
 });
 
