@@ -5,8 +5,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 // screens
-import { GreetingScreen } from './src/components/greeting.screen';
-import { LandingScreen } from './src/components/landing.screen';
+import { GreetingScreen } from './src/screens/greeting.screen';
+import { LandingScreen } from './src/screens/landing.screen';
 
 // tslint:disable-next-line:variable-name
 const MobileLift = StackNavigator({
