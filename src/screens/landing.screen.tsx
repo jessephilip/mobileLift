@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import { TodayScreen } from '../screens/today.screen';
 import { ScheduleScreen } from '../screens/schedule.screen';
-import { LogScreen } from '../screens/log.screen';
+import { ChallengesScreen } from '../screens/challenges.screen';
 
 // styling
 import { Styles } from '../styling/styles.styling';
@@ -17,7 +17,7 @@ interface State {}
 const TabNavigation = TabNavigator({
   Today: { screen: TodayScreen },
   Schedule: { screen: ScheduleScreen },
-  Log: { screen: LogScreen }
+  Challenges: { screen: ChallengesScreen }
 }, {
     animationEnabled: true,
     lazy: true,

@@ -3,9 +3,13 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Styles } from '../styling/styles.styling';
 
 interface Props {
+  amount: string | number;
   exercise: string;
+  muscleGroup: string;
   name: string;
   points: number;
+  type: string;
+  isActiveChallenge?: boolean;
 }
 
 interface State {}
@@ -24,7 +28,7 @@ export class ChallengeCard extends Component<Props, State> {
       <TouchableOpacity
         onPress={ this.cardTouch }>
         <View
-          style={ styling.challengeView }>
+          style={ this.props.isActiveChallenge ? styling.activeChallengeView : styling.inactiveChallengeView }>
           <View
             style={ styling.challengePointsView }>
             <Text
@@ -41,7 +45,8 @@ export class ChallengeCard extends Component<Props, State> {
                 { this.props.name }
               </Text>
             </View>
-            <Text>
+            <Text
+              style={ styling.challengeExercise }>
               { this.props.exercise }
             </Text>
           </View>
@@ -52,13 +57,21 @@ export class ChallengeCard extends Component<Props, State> {
 }
 
 const styling = StyleSheet.create({
-  challengeView: {
+  activeChallengeView: {
     backgroundColor: Styles.colors.secondary.light,
     borderWidth: 1,
     borderColor: Styles.colors.secondary.dark,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    margin: 5,
+    shadowColor: Styles.shadows.iosBoxShadow.shadowColor,
+    shadowOffset: Styles.shadows.iosBoxShadow.shadowOffset,
+    shadowOpacity: Styles.shadows.iosBoxShadow.shadowOpacity,
+    shadowRadius: Styles.shadows.iosBoxShadow.shadowRadius
+  },
+  inactiveChallengeView: {
+    backgroundColor: Styles.colors.primary.light,
+    borderWidth: 1,
+    borderColor: Styles.colors.secondary.dark,
+    flexDirection: 'row',
     shadowColor: Styles.shadows.iosBoxShadow.shadowColor,
     shadowOffset: Styles.shadows.iosBoxShadow.shadowOffset,
     shadowOpacity: Styles.shadows.iosBoxShadow.shadowOpacity,
@@ -77,15 +90,17 @@ const styling = StyleSheet.create({
     textShadowRadius: Styles.shadows.textShadow.textShadowRadius
   },
   challengeInfo: {
-    flex: 6,
-    flexDirection: 'column'
+    flex: 7,
+    flexDirection: 'column',
+    justifyContent: 'center'
   },
-  challengeHeader: {
-    padding: 5
-  },
+  challengeHeader: {},
   challengeName: {
     color: 'white',
     fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  challengeExercise: {
     textAlign: 'center'
   }
 });
