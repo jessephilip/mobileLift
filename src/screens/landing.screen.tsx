@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
 
 // for tab navigation
 import { TabNavigator } from 'react-navigation';
@@ -14,9 +15,9 @@ interface State {}
 
 // tslint:disable-next-line:variable-name
 const TabNavigation = TabNavigator({
-  today: { screen: TodayScreen },
-  schedule: { screen: ScheduleScreen },
-  log: { screen: LogScreen }
+  Today: { screen: TodayScreen },
+  Schedule: { screen: ScheduleScreen },
+  Log: { screen: LogScreen }
 }, {
     animationEnabled: true,
     lazy: true,
@@ -26,7 +27,14 @@ const TabNavigation = TabNavigator({
       activeTintColor: Styles.colors.secondary.main,
       inactiveTintColor: '#fff',
       inactiveBackgroundColor: Styles.colors.primary.main,
-      activeBackgroundColor: Styles.colors.primary.light
+      activeBackgroundColor: Styles.colors.primary.light,
+      labelStyle: {
+        fontSize: Styles.textSizes.small
+      },
+      tabStyle: {
+        alignItems: 'center',
+        justifyContent: 'center'
+      }
     }
   }
 );
@@ -43,3 +51,9 @@ export class LandingScreen extends Component<Props, State> {
     );
   }
 }
+
+const styling = StyleSheet.create({
+  tab: {
+    
+  }
+});
