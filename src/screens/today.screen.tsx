@@ -51,7 +51,8 @@ export class TodayScreen extends Component<Props, State> {
           style={ styling.date }>
           { this.getDate() }
         </Text>
-        <View>
+        <View
+          style={ styling.exerciseView }>
           <Text
             style={ styling.exerciseTitle }>
             { 'No exercise planned' }
@@ -74,12 +75,16 @@ const styling = StyleSheet.create({
     textShadowOffset: Styles.shadows.textShadow.textShadowOffset,
     textShadowRadius: Styles.shadows.textShadow.textShadowRadius
   },
+  exerciseView: {
+    alignItems: 'center',
+    backgroundColor: 'white',
+    // borderWidth: 1,
+    // borderColor: Styles.colors.secondary.dark,
+    height: 150,
+    justifyContent: 'center'
+  },
   exerciseTitle: {
     fontSize: Styles.textSizes.normal,
-    paddingTop: 30,
-    paddingRight: 10,
-    paddingBottom: 30,
-    paddingLeft: 10,
     textAlign: 'center'
   }
 });
