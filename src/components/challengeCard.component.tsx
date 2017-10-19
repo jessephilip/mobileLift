@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Styles } from '../styling/styles.styling';
 
 interface Props {
@@ -16,31 +16,38 @@ export class ChallengeCard extends Component<Props, State> {
     super(props);
   }
 
+  public cardTouch = () => {
+    console.log(this.props.name);
+  }
+
   public render () {
     return (
-      <View
-        style={ styling.challengeView }>
+      <TouchableOpacity
+        onPress={ this.cardTouch }>
         <View
-          style={ styling.challengePointsView }>
-          <Text
-            style={ styling.challengePointsText }>
-            { this.props.points }
-          </Text>
-        </View>
-        <View
-          style={ styling.challengeInfo }>
+          style={ styling.challengeView }>
           <View
-            style={ styling.challengeHeader }>
+            style={ styling.challengePointsView }>
             <Text
-              style={ styling.challengeName }>
-              { this.props.name }
+              style={ styling.challengePointsText }>
+              { this.props.points }
             </Text>
           </View>
-          <Text>
-            { this.props.exercise }
-          </Text>
+          <View
+            style={ styling.challengeInfo }>
+            <View
+              style={ styling.challengeHeader }>
+              <Text
+                style={ styling.challengeName }>
+                { this.props.name }
+              </Text>
+            </View>
+            <Text>
+              { this.props.exercise }
+            </Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
