@@ -51,9 +51,3 @@ export class LandingScreen extends Component<Props, State> {
     );
   }
 }
-
-const styling = StyleSheet.create({
-  tab: {
-    
-  }
-});

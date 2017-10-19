@@ -3,15 +3,10 @@ import { StyleSheet, Text, View, Button, AppRegistry, ScrollView } from 'react-n
 import { Styles } from '../styling/styles.styling';
 import { ChallengeCard } from '../components/challengeCard.component';
 
-import { currentChallenges } from '../constants/mock.data';
-import { pastChallenges } from '../constants/mock.data';
+import { CURRENTCHALLENGES } from '../constants/mock.data';
+import { PASTCHALLENGES } from '../constants/mock.data';
 
-// this interface sets up the properties that are supposed to be on the component
-interface Props {
-  name: string;
-  navigation: any;
-}
-
+interface Props {}
 interface State {}
 
 export class ChallengesScreen extends Component<Props, State> {
@@ -20,8 +15,9 @@ export class ChallengesScreen extends Component<Props, State> {
     super(props);
   }
 
-  public render () {
-    const current = currentChallenges.map((challenge, i) => {
+  // creates list of active ChallengeCard elements to be placed in render function
+  public createCurrentChallenges = (): JSX.Element[] => {
+    const current = CURRENTCHALLENGES.map((challenge, i) => {
       return (
         <View
           key={ 'view' + i }
@@ -38,8 +34,12 @@ export class ChallengesScreen extends Component<Props, State> {
         </View>
       );
     });
+    return current;
+  }
 
-    const past = pastChallenges.map((challenge, i) => {
+  // creates list of inactive ChallengeCard elements to be placed in render function
+  public createPastChallenges = (): JSX.Element[] => {
+    const past = PASTCHALLENGES.map((challenge, i) => {
       return (
         <View
           key={ 'view' + i }
@@ -55,20 +55,23 @@ export class ChallengesScreen extends Component<Props, State> {
         </View>
       );
     });
+    return past;
+  }
 
+  public render () {
     return (
       <View>
         <Text
           style={ styling.challengesHeading }>
           Current Challenges
         </Text>
-        { current }
+        { this.createCurrentChallenges() }
         <Text
           style={ styling.challengesHeading }>
           Completed Challenges
         </Text>
         <ScrollView>
-          { past }
+          { this.createPastChallenges() }
         </ScrollView>
       </View>
     );

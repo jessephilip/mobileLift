@@ -6,7 +6,6 @@ import { weekdayConverter } from '../constants/dateConverter';
 import { monthConverter } from '../constants/dateConverter';
 import { ChallengeCard } from '../components/challengeCard.component';
 
-// this interface sets up the properties that are supposed to be on the component
 interface Props {}
 interface State {}
 
@@ -17,8 +16,7 @@ export class TodayScreen extends Component<Props, State> {
   }
 
   private getDate = (): string => {
-    const today = Date.now()
-    , dateObject = new Date(today)
+    const dateObject = new Date()
     , month = dateObject.getMonth() + 1
     , day = dateObject.getDate()
     , year = dateObject.getFullYear()
@@ -29,7 +27,8 @@ export class TodayScreen extends Component<Props, State> {
 
   public render () {
     return (
-      <View>
+      <View
+        style={ styling.container }>
         <Text
           style={ styling.date }>
           { this.getDate() }
@@ -47,6 +46,9 @@ export class TodayScreen extends Component<Props, State> {
 }
 
 const styling = StyleSheet.create({
+  container: {
+    backgroundColor: 'white'
+  },
   date: {
     backgroundColor: Styles.colors.secondary.main,
     color: 'white',
